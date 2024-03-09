@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="stylelogin.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous">
+
+  <title>Login - Automated Essay Grading</title>
+
+  <style>
+    @font-face {
+      font-family: 'Product Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Open Sans'), local('OpenSans'),
+        url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+    }
+
+    body {
+      font-family: Product Sans;
+      background-color: #f8f9fa;
+      padding: 60px;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-family: Product Sans;
+      margin-bottom: 30px;
+    }
+
+    form {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 30px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+    }
+
+    .btn-login {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h1 class="text-center">Automated Essay Grading</h1>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email ID</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-login">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get input values
+      var username = document.getElementById("username").value;
+      var email = document.getElementById("email").value;
+
+      // Perform login validation (add your own validation logic here)
+      var isValid = validateLogin(username, email);
+
+      if (isValid) {
+        // Redirect to essay.html after successful login
+        window.location.href = "essay.html";
+      } else {
+        // Show error message or perform appropriate action
+        alert("Invalid login credentials. Please try again.");
+      }
+    });
+
+    function validateLogin(username, email) {
+      // Add your login validation logic here
+      // You can perform checks like verifying against a database or any other authentication mechanism
+      // For this example, we'll consider the login as valid if both fields are non-empty
+
+      return username.trim() !== "" && email.trim() !== "";
+    }
+  </script>
+</body>
+
+</html>

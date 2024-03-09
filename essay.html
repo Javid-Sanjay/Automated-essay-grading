@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Automatic Essay Grader</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1><center>Automatic Essay Grader</center></h1>
+  <p>Enter your essay topic and content to get your grade:</p>
+
+  <form>
+    <label for="essay-topic">Essay Topic: </label>
+    <input type="text" id="essay-topic"><br><br>
+
+    <label for="essay-content">Essay Content: </label>
+    <textarea id="essay-content"></textarea><br><br>
+
+    <button type="button" onclick="gradeEssay()">Grade Essay</button>
+    <button type="button" onclick="submitEssay()">Submit</button>
+  </form>
+
+  <div id="relevance-percentage"></div>
+  <div id="size-percentage"></div>
+  <div id="overall-percentage"></div>
+
+  <script>
+    function gradeEssay() {
+      let topic = document.getElementById('essay-topic').value;
+      let content = document.getElementById('essay-content').value;
+
+      if (content.trim() === "") {
+        
+        document.getElementById("relevance-percentage").innerHTML = "Relevance Percentage: False";
+        document.getElementById("size-percentage").innerHTML = "Size Percentage: 0%";
+        document.getElementById("overall-percentage").innerHTML = "Overall Percentage: 0%";
+        return;
+      }
+
+      let relevancePercentage = calculateRelevance(topic, content);
+      let sizePercentage = calculateSize(content);
+
+      let overallPercentage = (relevancePercentage + sizePercentage) / 2;
+
+      document.getElementById("relevance-percentage").innerHTML = "Relevance Percentage: " + relevancePercentage.toFixed(2) + "%";
+      document.getElementById("size-percentage").innerHTML = "Size Percentage: " + sizePercentage.toFixed(2) + "%";
+      document.getElementById("overall-percentage").innerHTML = "Overall Percentage: " + overallPercentage.toFixed(2) + "%";
+    }
+
+    function calculateRelevance(topic, content) {
+      let count = 0;
+      let words = topic.split(' ');
+      for (let i = 0; i < words.length; i++) {
+        if (content.includes(words[i])) {
+          count++;
+        }
+      }
+      return (count / words.length) * 100;
+    }
+
+   function calculateSize(content) {
+      let wordCount = content.trim().split(/\s+/).length;
+      if (wordCount >= 200) {
+        return Math.floor(Math.random() * 20 + 80);
+      } else if (wordCount > 100) {
+        return Math.floor(Math.random() * 10 + 50); 
+      } else {
+        return Math.floor(Math.random() * 10 + 30); 
+      }
+    }
+    
+    function submitEssay() {
+      window.location.href = "feedback.html";
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+/* Set background color and font family */
+body {
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+/* Add a colorful gradient to the heading */
+h1 {
+  background-image: linear-gradient(to right, #007bff, #0083b0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Style the form elements */
+form {
+  background-color: #e7edf3;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 1rem;
+  color: #555555;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #0056b3;
+  color: #ffffff;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #d93a49;
+}
+
+/* Add some color to the result divs */
+#relevance-percentage {
+  background-color: #ee9e52;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 2rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#size-percentage {
+  background-color: #ee9e52;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 2rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#overall-percentage {
+  background-color: #6872f8;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 2rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Automatic Essay Grader - Result</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1><center>Automatic Essay Grader - Result</center></h1>
+  <p>Email ID: <span id="email"></span></p>
+  <p>Username: <span id="username"></span></p>
+  <div id="overall-percentage"></div>
+
+  <script src="./script.js"></script>
+  <script>
+    // Get the email and username from the localStorage
+    // var email = localStorage.getItem("email");
+    // var username = localStorage.getItem("username");
+    console.log(email);
+    // Display the email and username on the result page
+    document.getElementById("email").textContent = email;
+    document.getElementById("username").textContent = username;
+
+    // Get the overall percentage from the URL query parameter
+    var urlParams = new URLSearchParams(window.location.search);
+    var overallPercentage = urlParams.get("overallPercentage");
+
+    // Display the overall percentage on the result page
+    document.getElementById("overall-percentage").innerHTML = "Overall Percentage: " + overallPercentage + "%";
+  </script>
+
+</body>
+
+</html>
